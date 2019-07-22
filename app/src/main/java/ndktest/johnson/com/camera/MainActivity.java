@@ -29,6 +29,8 @@ import android.util.Size;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -60,10 +62,16 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setfullScreen();
         setContentView(R.layout.activity_main);
         getCameraPermission();
         init();
 
+    }
+
+    private void setfullScreen() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     private void init() {
